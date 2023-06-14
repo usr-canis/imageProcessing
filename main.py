@@ -3,7 +3,7 @@ import cv2
 
 def modified_mean_filter(image, window_size):
     height, width = image.shape[:2]
-    border = window_size // 2
+    border = window_size // 2 # cause processing pixel is at center
     filtered_image = np.copy(image)
 
     for i in range(border, height - border):
@@ -22,7 +22,8 @@ def modified_mean_filter(image, window_size):
 
     return filtered_image
 
-image = cv2.imread('noise.png', 0) 
+noiseimage=input("Enter the image path to filter:")
+image = cv2.imread(noiseimage, 0) 
 
 if image is None:
     print("Error loading the image.")
